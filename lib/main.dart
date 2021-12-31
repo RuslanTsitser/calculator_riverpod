@@ -1,16 +1,15 @@
-import 'package:calculator_riverpod/calculator_change_notifier.dart';
-import 'package:calculator_riverpod/calculator_state_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'calculator_home_page.dart';
+import 'state_notifiers/calculator_state_notifier.dart';
+import 'views/calculator_home_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 final calculatorProvider =
-    StateNotifierProvider<CalculatorStateNotifier, CalculatorState>(
+    StateNotifierProvider<CalculatorStateNotifier, List<CalculatorState>>(
         (ref) => CalculatorStateNotifier());
 
 class MyApp extends StatelessWidget {
@@ -20,6 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ProviderScope(
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        themeMode: ThemeMode.dark,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

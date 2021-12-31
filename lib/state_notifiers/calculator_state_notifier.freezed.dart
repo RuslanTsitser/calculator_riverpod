@@ -17,8 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CalculatorStateTearOff {
   const _$CalculatorStateTearOff();
 
-  _CalculatorState call({String inputField = '0', String result = '0'}) {
+  _CalculatorState call({String? id, String? inputField, String? result}) {
     return _CalculatorState(
+      id: id,
       inputField: inputField,
       result: result,
     );
@@ -30,8 +31,9 @@ const $CalculatorState = _$CalculatorStateTearOff();
 
 /// @nodoc
 mixin _$CalculatorState {
-  String get inputField => throw _privateConstructorUsedError;
-  String get result => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get inputField => throw _privateConstructorUsedError;
+  String? get result => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CalculatorStateCopyWith<CalculatorState> get copyWith =>
@@ -43,7 +45,7 @@ abstract class $CalculatorStateCopyWith<$Res> {
   factory $CalculatorStateCopyWith(
           CalculatorState value, $Res Function(CalculatorState) then) =
       _$CalculatorStateCopyWithImpl<$Res>;
-  $Res call({String inputField, String result});
+  $Res call({String? id, String? inputField, String? result});
 }
 
 /// @nodoc
@@ -57,18 +59,23 @@ class _$CalculatorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? inputField = freezed,
     Object? result = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       inputField: inputField == freezed
           ? _value.inputField
           : inputField // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       result: result == freezed
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -80,7 +87,7 @@ abstract class _$CalculatorStateCopyWith<$Res>
           _CalculatorState value, $Res Function(_CalculatorState) then) =
       __$CalculatorStateCopyWithImpl<$Res>;
   @override
-  $Res call({String inputField, String result});
+  $Res call({String? id, String? inputField, String? result});
 }
 
 /// @nodoc
@@ -96,18 +103,23 @@ class __$CalculatorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? inputField = freezed,
     Object? result = freezed,
   }) {
     return _then(_CalculatorState(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       inputField: inputField == freezed
           ? _value.inputField
           : inputField // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       result: result == freezed
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -115,25 +127,26 @@ class __$CalculatorStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CalculatorState extends _CalculatorState {
-  const _$_CalculatorState({this.inputField = '0', this.result = '0'})
-      : super._();
+  const _$_CalculatorState({this.id, this.inputField, this.result}) : super._();
 
-  @JsonKey(defaultValue: '0')
   @override
-  final String inputField;
-  @JsonKey(defaultValue: '0')
+  final String? id;
   @override
-  final String result;
+  final String? inputField;
+  @override
+  final String? result;
 
   @override
   String toString() {
-    return 'CalculatorState(inputField: $inputField, result: $result)';
+    return 'CalculatorState(id: $id, inputField: $inputField, result: $result)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _CalculatorState &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.inputField, inputField) ||
                 const DeepCollectionEquality()
                     .equals(other.inputField, inputField)) &&
@@ -144,6 +157,7 @@ class _$_CalculatorState extends _CalculatorState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(inputField) ^
       const DeepCollectionEquality().hash(result);
 
@@ -154,14 +168,16 @@ class _$_CalculatorState extends _CalculatorState {
 }
 
 abstract class _CalculatorState extends CalculatorState {
-  const factory _CalculatorState({String inputField, String result}) =
-      _$_CalculatorState;
+  const factory _CalculatorState(
+      {String? id, String? inputField, String? result}) = _$_CalculatorState;
   const _CalculatorState._() : super._();
 
   @override
-  String get inputField => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   @override
-  String get result => throw _privateConstructorUsedError;
+  String? get inputField => throw _privateConstructorUsedError;
+  @override
+  String? get result => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CalculatorStateCopyWith<_CalculatorState> get copyWith =>
